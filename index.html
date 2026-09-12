@@ -117,34 +117,27 @@
         </div>
       </div>
 
-      <div class="hero-visual" aria-hidden="true">
-        <div class="hero-blob">
-          <svg viewBox="0 0 520 520" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="blobGrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#1B5E5E"/>
-                <stop offset="1" stop-color="#0E3B3B"/>
-              </linearGradient>
-            </defs>
-            <path fill="url(#blobGrad)" d="M362 55c52 30 96 84 103 143 7 60-24 125-73 168-49 43-117 64-181 52-64-11-124-53-149-111-25-58-16-132 20-183 36-52 100-83 163-94 21-4 63-9 117 25z"/>
-            <g transform="translate(150,140)" fill="none" stroke="#F4E4C8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M40 190c10-30 20-55 20-80 0-25-14-40-14-60 0-18 14-32 32-32s32 14 32 32c0 18-10 30-10 52 0 26 14 42 30 66"/>
-              <circle cx="78" cy="20" r="16" fill="#F4E4C8" stroke="none"/>
-              <path d="M40 190c-10 18-18 34-14 46" />
-              <path d="M120 178c10 18 16 32 12 44"/>
-              <path d="M20 300c40-16 60-40 64-70"/>
-            </g>
-            <g transform="translate(70,300)" fill="none" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="5" stroke-linecap="round">
-              <path d="M0 40 C 40 0, 80 0, 120 40 C 160 80, 200 80, 240 40"/>
-            </g>
-          </svg>
+      <div class="hero-visual">
+        <div class="hero-photo-frame">
+          <img
+            src="https://images.pexels.com/photos/4506073/pexels-photo-4506073.jpeg?auto=compress&cs=tinysrgb&w=1000"
+            srcset="https://images.pexels.com/photos/4506073/pexels-photo-4506073.jpeg?auto=compress&cs=tinysrgb&w=600 600w,
+                    https://images.pexels.com/photos/4506073/pexels-photo-4506073.jpeg?auto=compress&cs=tinysrgb&w=1000 1000w"
+            sizes="(max-width: 1024px) 90vw, 520px"
+            alt="Physiotherapist assisting a patient with a guided arm exercise in a clinic"
+            loading="eager"
+            width="1000" height="1250">
         </div>
         <div class="hero-float-card">
-          <span class="hfc-icon">&#9733;</span>
+          <span class="hfc-icon" aria-hidden="true">&#9733;</span>
           <div>
             <strong>4.9 / 5</strong>
             <small>170+ Google reviews</small>
           </div>
+        </div>
+        <div class="hero-badge-card" aria-hidden="true">
+          <strong>2005</strong>
+          <span>Serving Kalyan since</span>
         </div>
       </div>
     </div>
@@ -154,18 +147,22 @@
   <section class="stats" aria-label="Clinic trust indicators">
     <div class="wrap stats-grid">
       <div class="stat-card">
-        <span class="stat-value">4.9<span class="star">&#9733;</span></span>
+        <span class="stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l2.7 5.9 6.3.6-4.8 4.3 1.4 6.2L12 16.9 6.4 20l1.4-6.2-4.8-4.3 6.3-.6L12 3z" fill="#F4E4C8"/></svg></span>
+        <span class="stat-value"><span data-count-to="4.9">0.0</span><span class="star">&#9733;</span></span>
         <span class="stat-label">Google Rating</span>
       </div>
       <div class="stat-card">
-        <span class="stat-value">170+</span>
+        <span class="stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v10H8l-4 4V5z" stroke="#F4E4C8" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+        <span class="stat-value"><span data-count-to="170">0</span>+</span>
         <span class="stat-label">Patient Reviews</span>
       </div>
       <div class="stat-card">
+        <span class="stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="15" rx="2" stroke="#F4E4C8" stroke-width="1.8"/><path d="M4 9h16M8 3v4M16 3v4" stroke="#F4E4C8" stroke-width="1.8" stroke-linecap="round"/></svg></span>
         <span class="stat-value">2005</span>
         <span class="stat-label">Serving Kalyan Since</span>
       </div>
       <div class="stat-card">
+        <span class="stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.4-9.5-9C1 8.5 3 5 6.5 5c2 0 3.3 1 4 2.2C11.2 6 12.5 5 14.5 5 18 5 20 8.5 18.5 12c-2.5 4.6-6.5 9-6.5 9z" stroke="#F4E4C8" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
         <span class="stat-value">1:1</span>
         <span class="stat-label">Personalized Care</span>
       </div>
@@ -175,18 +172,17 @@
   <!-- ============ ABOUT ============ -->
   <section class="about" id="about">
     <div class="wrap about-inner">
-      <div class="about-visual" aria-hidden="true">
-        <svg viewBox="0 0 400 460" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <rect x="0" y="0" width="400" height="460" rx="28" fill="#EEF3F1"/>
-          <rect x="28" y="28" width="344" height="404" rx="20" fill="#FFFFFF" stroke="#DCE6E2" stroke-width="2"/>
-          <circle cx="200" cy="150" r="70" fill="#F4E4C8"/>
-          <path d="M160 150a40 40 0 1 1 80 0c0 26-40 60-40 60s-40-34-40-60z" fill="#C6903B"/>
-          <g stroke="#0E3B3B" stroke-width="6" stroke-linecap="round" fill="none">
-            <path d="M120 300c20-24 44-36 80-36s60 12 80 36"/>
-            <path d="M120 340c20-18 44-28 80-28s60 10 80 28"/>
-          </g>
-          <text x="200" y="400" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" fill="#55686A">Dr. Rashmi Manohar</text>
-        </svg>
+      <div class="about-visual">
+        <div class="about-photo-frame">
+          <img
+            src="https://images.pexels.com/photos/4506169/pexels-photo-4506169.jpeg?auto=compress&cs=tinysrgb&w=760"
+            alt="Physiotherapist guiding a patient through a shoulder mobility exercise"
+            loading="lazy" width="760" height="900">
+        </div>
+        <div class="about-since-badge" aria-hidden="true">
+          <strong>Since</strong>
+          <span>2005</span>
+        </div>
       </div>
 
       <div class="about-copy">
@@ -380,7 +376,7 @@
       </div>
 
       <div class="reviews-cta">
-        <a href="https://www.google.com/search?q=Shree+Shraddha+Physiotherapy+Clinic+Kalyan+East+reviews" class="btn btn-ghost-light" target="_blank" rel="noopener">View all Google Reviews</a>
+        <a href="https://www.google.com/search?q=Shree+Shraddha+Physiotherapy+Clinic+Kalyan+East+reviews" class="btn btn-ghost-light" target="_blank" rel="noopener">View Google Reviews</a>
       </div>
     </div>
   </section>
@@ -395,43 +391,26 @@
       </div>
 
       <div class="gallery-grid">
-        <figure class="gallery-item">
-          <svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="#0E3B3B"/><path d="M20 70l18-22 14 14 12-18 16 26z" fill="#1B5E5E"/><circle cx="30" cy="32" r="7" fill="#C6903B"/></svg>
+        <figure class="gallery-item gallery-item-tall">
+          <img src="https://images.pexels.com/photos/10586212/pexels-photo-10586212.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Placeholder photo representing the clinic's exterior entrance" loading="lazy" width="700" height="900">
           <figcaption>Clinic Exterior</figcaption>
         </figure>
         <figure class="gallery-item">
-          <svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="#EEF3F1"/><rect x="15" y="55" width="70" height="8" fill="#0E3B3B"/><rect x="20" y="30" width="60" height="22" rx="3" fill="#C6903B"/></svg>
+          <img src="https://images.pexels.com/photos/33812025/pexels-photo-33812025.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Placeholder photo representing a modern clinic reception area" loading="lazy" width="700" height="500">
           <figcaption>Reception</figcaption>
         </figure>
-        <figure class="gallery-item">
-          <svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="#F4E4C8"/><rect x="18" y="45" width="64" height="14" rx="6" fill="#0E3B3B"/><circle cx="30" cy="52" r="5" fill="#FFFFFF"/></svg>
+        <figure class="gallery-item gallery-item-tall">
+          <img src="https://images.pexels.com/photos/5793917/pexels-photo-5793917.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Placeholder photo representing a physiotherapy treatment area" loading="lazy" width="700" height="900">
           <figcaption>Treatment Area</figcaption>
         </figure>
         <figure class="gallery-item">
-          <svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="#1B5E5E"/><circle cx="50" cy="40" r="16" fill="none" stroke="#F4E4C8" stroke-width="4"/><rect x="46" y="56" width="8" height="24" fill="#F4E4C8"/></svg>
+          <img src="https://images.pexels.com/photos/25599824/pexels-photo-25599824.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Placeholder photo representing physiotherapy equipment" loading="lazy" width="700" height="500">
           <figcaption>Physiotherapy Equipment</figcaption>
         </figure>
         <figure class="gallery-item">
-          <svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="#0E3B3B"/><circle cx="50" cy="35" r="14" fill="#F4E4C8"/><path d="M25 82c3-18 13-28 25-28s22 10 25 28z" fill="#C6903B"/></svg>
+          <img src="https://images.pexels.com/photos/5793918/pexels-photo-5793918.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Placeholder photo representing the clinic's doctor and team" loading="lazy" width="700" height="500">
           <figcaption>Doctor &amp; Team</figcaption>
         </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ APPOINTMENT CTA ============ -->
-  <section class="cta-band">
-    <div class="wrap cta-band-inner">
-      <div>
-        <h2>Looking for physiotherapy care in Kalyan East?</h2>
-        <p>Book an appointment with Shree Shraddha Physiotherapy Clinic, and take the next step toward better movement.</p>
-      </div>
-      <div class="cta-band-actions">
-        <a href="https://wa.me/918355947884?text=Hi%2C%20I%27d%20like%20to%20book%20an%20appointment%20at%20Shree%20Shraddha%20Physiotherapy%20Clinic." class="btn btn-primary" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.44 1.33 4.94L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.02c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.13.11-1.82-.12-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.79-4.17-4.94-4.36-.14-.2-1.19-1.58-1.19-3.01s.75-2.13 1.02-2.42c.26-.29.57-.36.77-.36h.55c.18 0 .42-.03.65.5.24.57.82 1.98.9 2.13.07.14.12.31.02.5-.1.2-.15.31-.29.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.77 1.27 1.66 2.06 1.14 1.02 2.1 1.34 2.39 1.49.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.63-.14.26.1 1.65.78 1.93.92.29.14.48.21.55.33.07.12.07.68-.17 1.35z"/></svg>
-          WhatsApp Appointment
-        </a>
-        <a href="tel:+918355947884" class="btn btn-outline-light">Call +91 83559 47884</a>
       </div>
     </div>
   </section>
@@ -459,21 +438,6 @@
           </div>
         </div>
 
-        <div class="contact-block">
-          <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="#0E3B3B" stroke-width="1.8"/><path d="M4 6l8 6 8-6" stroke="#0E3B3B" stroke-width="1.8"/></svg></span>
-          <div>
-            <strong>Opening hours</strong>
-            <p class="hours-note">Timings can vary &mdash; please call to confirm before visiting.</p>
-            <table class="hours-table">
-              <tbody>
-                <tr><th>Mon &ndash; Fri</th><td>10:00 AM &ndash; 1:30 PM, 5:00 PM &ndash; 9:00 PM</td></tr>
-                <tr><th>Saturday</th><td>10:00 AM &ndash; 1:00 PM, 5:00 PM &ndash; 9:00 PM</td></tr>
-                <tr><th>Sunday</th><td>Closed</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
         <div class="contact-actions">
           <a href="https://wa.me/918355947884?text=Hi%2C%20I%27d%20like%20to%20book%20an%20appointment%20at%20Shree%20Shraddha%20Physiotherapy%20Clinic." class="btn btn-primary" target="_blank" rel="noopener">WhatsApp Appointment</a>
           <a href="tel:+918355947884" class="btn btn-outline">Call Clinic</a>
@@ -486,6 +450,84 @@
           src="https://www.google.com/maps?q=Shree+Shraddha+Physiotherapy+Clinic+Kolsewadi+Kalyan+East+Maharashtra+421306&output=embed"
           width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
         </iframe>
+      </div>
+    </div>
+
+    <!-- ============ TIMINGS + APPOINTMENT FORM ============ -->
+    <div class="wrap">
+      <div class="appointment-panel" id="appointment-form">
+        <div class="timings-card">
+          <p class="eyebrow">Plan your visit</p>
+          <h3>Clinic Timings</h3>
+          <p class="hours-note">Timings can vary &mdash; please call to confirm before visiting.</p>
+          <table class="hours-table">
+            <tbody>
+              <tr><th>Mon &ndash; Fri</th><td>10:00 AM &ndash; 1:30 PM, 5:00 PM &ndash; 9:00 PM</td></tr>
+              <tr><th>Saturday</th><td>10:00 AM &ndash; 1:00 PM, 5:00 PM &ndash; 9:00 PM</td></tr>
+              <tr><th>Sunday</th><td>Closed</td></tr>
+            </tbody>
+          </table>
+          <div class="timings-phone">
+            <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5c0-1 1-2 2-2h2l2 5-2 2c1 3 3 5 6 6l2-2 5 2v2c0 1-1 2-2 2C10 20 4 14 4 5z" stroke="#0E3B3B" stroke-width="1.8"/></svg></span>
+            <div>
+              <strong>Prefer to call?</strong>
+              <p><a href="tel:+918355947884">+91 83559 47884</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="appointment-form-card">
+          <p class="eyebrow">Request a visit</p>
+          <h3>Request an Appointment</h3>
+          <p class="form-intro">Share a few details and we'll open WhatsApp with your request ready to send to the clinic.</p>
+
+          <form id="appointmentForm" novalidate>
+            <div class="form-row">
+              <label for="af-name">Patient Name</label>
+              <input type="text" id="af-name" name="name" autocomplete="name" required>
+              <span class="form-error" id="err-name">Please enter the patient's name.</span>
+            </div>
+
+            <div class="form-row">
+              <label for="af-phone">Phone Number</label>
+              <input type="tel" id="af-phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="10-digit mobile number" required>
+              <span class="form-error" id="err-phone">Please enter a valid phone number.</span>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-row">
+                <label for="af-date">Preferred Date</label>
+                <input type="date" id="af-date" name="date">
+              </div>
+              <div class="form-row">
+                <label for="af-time">Preferred Time</label>
+                <input type="time" id="af-time" name="time">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label for="af-concern">Concern / Reason for Visit</label>
+              <textarea id="af-concern" name="concern" rows="3" placeholder="E.g. lower back pain, knee stiffness"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary form-submit">Request Appointment</button>
+            <p class="form-note">Your appointment request will be sent to the clinic via WhatsApp.</p>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final-cta">
+    <div class="wrap final-cta-inner">
+      <h2>Ready to take the next step towards better movement?</h2>
+      <p>Book an appointment with Shree Shraddha Physiotherapy Clinic in Kalyan East.</p>
+      <div class="final-cta-actions">
+        <a href="#appointment-form" class="btn btn-primary">Book Appointment</a>
+        <a href="https://wa.me/918355947884?text=Hi%2C%20I%27d%20like%20to%20book%20an%20appointment%20at%20Shree%20Shraddha%20Physiotherapy%20Clinic." class="btn btn-outline-light" target="_blank" rel="noopener">WhatsApp Clinic</a>
+        <a href="tel:+918355947884" class="btn btn-outline-light">Call Clinic</a>
       </div>
     </div>
   </section>
