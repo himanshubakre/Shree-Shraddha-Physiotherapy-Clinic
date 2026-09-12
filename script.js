@@ -137,35 +137,6 @@
     });
   }
 
-  // Stat counters animate up once when scrolled into view
-  var countEls = document.querySelectorAll("[data-count-to]");
-  if (countEls.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
-    var animated = false;
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting && !animated) {
-          animated = true;
-          countEls.forEach(function (el) {
-            var target = parseFloat(el.getAttribute("data-count-to"));
-            var isDecimal = target % 1 !== 0;
-            var duration = 900;
-            var start = null;
-            function step(ts) {
-              if (start === null) start = ts;
-              var progress = Math.min((ts - start) / duration, 1);
-              var current = target * progress;
-              el.textContent = isDecimal ? current.toFixed(1) : Math.round(current);
-              if (progress < 1) requestAnimationFrame(step);
-              else el.textContent = isDecimal ? target.toFixed(1) : target;
-            }
-            requestAnimationFrame(step);
-          });
-        }
-      });
-    }, { threshold: 0.4 });
-    observer.observe(document.querySelector(".stats"));
-  }
-
   // One orchestrated reveal for hero content on load
   var heroCopy = document.querySelector(".hero-copy");
   var heroVisual = document.querySelector(".hero-visual");
