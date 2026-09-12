@@ -58,6 +58,114 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
+  // Appointment request form -> validate, then hand off to WhatsApp
+  var appointmentForm = document.getElementById("appointmentForm");
+  if (appointmentForm) {
+    var nameField = document.getElementById("af-name");
+    var phoneField = document.getElementById("af-phone");
+    var dateField = document.getElementById("af-date");
+    var timeField = document.getElementById("af-time");
+    var concernField = document.getElementById("af-concern");
+    var statusEl = document.getElementById("formStatus");
+
+    function setError(fieldRow, show) {
+      if (show) {
+        fieldRow.classList.add("has-error");
+      } else {
+        fieldRow.classList.remove("has-error");
+      }
+    }
+
+    function formatDate(value) {
+      if (!value) return "Not specified";
+      var parts = value.split("-");
+      if (parts.length !== 3) return value;
+      var d = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+      return d.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
+    }
+
+    function formatTime(value) {
+      if (!value) return "Not specified";
+      var parts = value.split(":");
+      if (parts.length < 2) return value;
+      var h = Number(parts[0]);
+      var m = parts[1];
+      var suffix = h >= 12 ? "PM" : "AM";
+      var h12 = h % 12 === 0 ? 12 : h % 12;
+      return h12 + ":" + m + " " + suffix;
+    }
+
+    appointmentForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      var nameRow = nameField.closest(".form-row");
+      var phoneRow = phoneField.closest(".form-row");
+      var nameValid = nameField.value.trim().length > 1;
+      var phoneDigits = phoneField.value.replace(/\D/g, "");
+      var phoneValid = phoneDigits.length >= 10;
+
+      setError(nameRow, !nameValid);
+      setError(phoneRow, !phoneValid);
+
+      if (!nameValid || !phoneValid) {
+        statusEl.textContent = "Please fill in the required fields above.";
+        return;
+      }
+
+      statusEl.textContent = "Opening WhatsApp with your request...";
+
+      var lines = [
+        "Hello, I would like to request an appointment at Shree Shraddha Physiotherapy Clinic.",
+        "",
+        "Name: " + nameField.value.trim(),
+        "Phone: " + phoneField.value.trim(),
+        "Preferred Date: " + formatDate(dateField.value),
+        "Preferred Time: " + formatTime(timeField.value),
+        "Concern: " + (concernField.value.trim() || "Not specified")
+      ];
+
+      var message = encodeURIComponent(lines.join("\n"));
+      var waUrl = "https://wa.me/918355947884?text=" + message;
+      window.open(waUrl, "_blank", "noopener");
+    });
+
+    [nameField, phoneField].forEach(function (field) {
+      field.addEventListener("input", function () {
+        setError(field.closest(".form-row"), false);
+        statusEl.textContent = "";
+      });
+    });
+  }
+
+  // Stat counters animate up once when scrolled into view
+  var countEls = document.querySelectorAll("[data-count-to]");
+  if (countEls.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
+    var animated = false;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !animated) {
+          animated = true;
+          countEls.forEach(function (el) {
+            var target = parseFloat(el.getAttribute("data-count-to"));
+            var isDecimal = target % 1 !== 0;
+            var duration = 900;
+            var start = null;
+            function step(ts) {
+              if (start === null) start = ts;
+              var progress = Math.min((ts - start) / duration, 1);
+              var current = target * progress;
+              el.textContent = isDecimal ? current.toFixed(1) : Math.round(current);
+              if (progress < 1) requestAnimationFrame(step);
+              else el.textContent = isDecimal ? target.toFixed(1) : target;
+            }
+            requestAnimationFrame(step);
+          });
+        }
+      });
+    }, { threshold: 0.4 });
+    observer.observe(document.querySelector(".stats"));
+  }
+
   // One orchestrated reveal for hero content on load
   var heroCopy = document.querySelector(".hero-copy");
   var heroVisual = document.querySelector(".hero-visual");
